@@ -1,18 +1,25 @@
 {
   "name": "rastreadorcontactosfincasbcn",
   "version": "1.0.0",
-  "description": "Sistema de captación y filtrado inteligente de contactos inmobiliarios para la zona de Barcelona. Utiliza IA y NLP para analizar y priorizar compradores potenciales, optimizando el tiempo de visitas y evitando contactos improductivos. Basado en API de OpenAI y Google Cloud.",
-  "main": "index.js",
+  "description": "Sistema de captación y filtrado inteligente de contactos inmobiliarios en Barcelona usando IA.",
+  "main": "src/services/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/services/index.js",
+    "dev": "nodemon src/services/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Neil Munoz",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "openai": "^4.65.0"
+  },
+  "engines": {
+    "node": ">=20.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
