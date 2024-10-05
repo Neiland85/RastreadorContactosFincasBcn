@@ -3,6 +3,10 @@ require('dotenv').config();
 
 const filtrarContactos = async (respuestas) => {
     try {
+        if (!respuestas || !respuestas.urgencia || !respuestas.finanzas || !respuestas.compromiso) {
+            throw new Error('Datos de contacto incompletos');
+        }
+
         const apiKey = process.env.OPENAI_API_KEY;
         const prompt = generarPrompt(respuestas);
 
