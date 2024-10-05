@@ -1,5 +1,5 @@
 {
-  "name": "rastreadorcontactosfincasbcn",
+  "name": "rastreador-contactos-fincas-bcn", 
   "version": "1.0.0",
   "description": "Sistema de captación y filtrado inteligente de contactos inmobiliarios en Barcelona usando IA.",
   "main": "src/services/index.js",
