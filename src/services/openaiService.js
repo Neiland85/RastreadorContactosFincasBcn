@@ -17,9 +17,8 @@ const filtrarContactos = async (respuestas) => {
             temperature: 0.3
         }, {
             headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json'
-            }
+	'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,  
+        'Content-Type': 'application/json'            }
         });
 
         return respuesta.data.choices[0].text.trim();
