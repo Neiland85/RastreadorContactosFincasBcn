@@ -1,20 +1,18 @@
-const express = require('express'); 
-const app = express(); 
-const { filtrarContactos } = require('./openaiService');
+const express = require('express');
 const bodyParser = require('body-parser');
+const { filtrarContactos } = require('./services/openaiService');
+
+const app = express();
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.send('Hola, servidor en ejecución!');
-});
-
 app.post('/filtrar', async (req, res) => {
+    console.log('Cuerpo recibido:', req.body);
     try {
-        const resultado = await filtrarContactos(req.body.respuestas);
-        res.send({ resultado });
+        const respuestaFiltrada = await filtrarContactos(req.body.respuestas);
+        res.json({ resultado: respuestaFiltrada });
     } catch (error) {
-        res.status(500).send({ error: 'Error al filtrar contactos' });
+        res.status(400).json({ error: error.message });
     }
 });
 
