@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { filtrarContactos } = require('./services/openaiService');
+const { filtrarContactos } = require('./openaiService');
 
 const app = express();
 
