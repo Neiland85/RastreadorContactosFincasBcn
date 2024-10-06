@@ -8,7 +8,7 @@ const filtrarContactos = async (respuestas) => {
         }
 
         const apiKey = process.env.OPENAI_API_KEY;
-        console.log('API Key:', apiKey);  // Asegúrate de que la clave API esté disponible
+        console.log('API Key:', apiKey);  
         const prompt = generarPrompt(respuestas);
 
         const respuesta = await axios.post('https://api.openai.com/v1/completions', {
@@ -18,7 +18,7 @@ const filtrarContactos = async (respuestas) => {
             temperature: 0.3
         }, {
             headers: {
-                'Authorization': `Bearer ${apiKey}`,  // Usa solo una vez el encabezado Authorization
+                'Authorization': `Bearer ${apiKey}`,  
                 'Content-Type': 'application/json'
             }
         });
