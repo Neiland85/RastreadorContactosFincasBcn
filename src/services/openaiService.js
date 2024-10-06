@@ -1,22 +1,18 @@
-const { OpenAIApi } = require('openai');
+const openai = require('openai');
 require('dotenv').config();
-
-const openai = new OpenAIApi({
-    apiKey: process.env.OPENAI_API_KEY
-});
 
 const filtrarContactos = async (respuestas) => {
     const prompt = generarPrompt(respuestas);
 
     try {
-        const response = await openai.createCompletion({
+        const response = await openai.completions.create({
             model: 'text-davinci-003',
             prompt: prompt,
             max_tokens: 100,
             temperature: 0.7,
         });
 
-        return response.data.choices[0].text.trim();
+        return response.choices[0].text.trim();
     } catch (error) {
         console.error('Error al hacer la petición a OpenAI:', error.response ? error.response.data : error.message);
         throw new Error('Error al filtrar contactos con OpenAI');
