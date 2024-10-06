@@ -11,12 +11,12 @@
   "author": "Neil Munoz",
   "license": "ISC",
   "dependencies": {
-    "cookie": "^0.7.0",
     "axios": "^1.7.7",
+    "cookie": "^0.7.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "mime": "^4.0.4",
-    "openai": "^4.65.0",
+    "openai": "^4.67.1",
     "qs": "^6.13.0"
   },
   "engines": {
@@ -26,4 +26,3 @@
     "nodemon": "^3.1.7"
   }
 }
-
