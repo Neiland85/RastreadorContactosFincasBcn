@@ -8,8 +8,8 @@ const filtrarContactos = async (respuestas) => {
         }
 
         const apiKey = process.env.OPENAI_API_KEY;
-        console.log('API Key:', apiKey);
-	const prompt = generarPrompt(respuestas);
+        console.log('API Key:', apiKey);  // Asegúrate de que la clave API esté disponible
+        const prompt = generarPrompt(respuestas);
 
         const respuesta = await axios.post('https://api.openai.com/v1/completions', {
             model: 'code-cushman-001',
@@ -18,8 +18,9 @@ const filtrarContactos = async (respuestas) => {
             temperature: 0.3
         }, {
             headers: {
-	'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,  
-        'Content-Type': 'application/json'            }
+                'Authorization': `Bearer ${apiKey}`,  // Usa solo una vez el encabezado Authorization
+                'Content-Type': 'application/json'
+            }
         });
 
         return respuesta.data.choices[0].text.trim();
