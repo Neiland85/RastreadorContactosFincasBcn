@@ -8,7 +8,8 @@ const filtrarContactos = async (respuestas) => {
         }
 
         const apiKey = process.env.OPENAI_API_KEY;
-        const prompt = generarPrompt(respuestas);
+        console.log('API Key:', apiKey);
+	const prompt = generarPrompt(respuestas);
 
         const respuesta = await axios.post('https://api.openai.com/v1/completions', {
             model: 'code-cushman-001',

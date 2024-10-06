@@ -1,5 +1,5 @@
 {
-  "name": "rastreador-contactos-fincas-bcn", 
+  "name": "rastreador-contactos-fincas-bcn",
   "version": "1.0.0",
   "description": "Sistema de captación y filtrado inteligente de contactos inmobiliarios en Barcelona usando IA.",
   "main": "src/services/index.js",
@@ -11,6 +11,7 @@
   "author": "Neil Munoz",
   "license": "ISC",
   "dependencies": {
+    "cookie": "^0.7.0",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
@@ -25,3 +26,4 @@
     "nodemon": "^3.1.7"
   }
 }
+
