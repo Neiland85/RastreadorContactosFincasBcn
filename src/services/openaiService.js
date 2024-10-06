@@ -1,10 +1,8 @@
 const { Configuration, OpenAIApi } = require("openai");
 
-const configuration = new Configuration({
+const openai = new OpenAIApi({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-const openai = new OpenAIApi(configuration);
 
 const filtrarContactos = async (respuestas) => {
   try {
@@ -15,7 +13,7 @@ const filtrarContactos = async (respuestas) => {
     const prompt = generarPrompt(respuestas);
 
     const respuesta = await openai.createCompletion({
-      model: "text-davinci-003", // Puedes ajustar el modelo si es necesario
+      model: "text-davinci-003",
       prompt: prompt,
       max_tokens: 150,
       temperature: 0.3,
@@ -29,17 +27,17 @@ const filtrarContactos = async (respuestas) => {
 };
 
 const generarPrompt = (respuestas) => {
-  return `
+    return `
     Eres un experto en ventas inmobiliarias. Un cliente te ha proporcionado la siguiente información:
-    Urgencia: ${respuestas.urgencia}
-    Finanzas: ${respuestas.finanzas}
-    Compromiso: ${respuestas.compromiso}
+
+    1. Urgencia: ${respuestas.urgencia}
+    2. Finanzas: ${respuestas.finanzas}
+    3. Compromiso: ${respuestas.compromiso}
 
     Evalúa la seriedad del cliente en base a estos factores y da una recomendación detallada.
-  `;
+    `;
 };
 
 module.exports = {
-  filtrarContactos,
+    filtrarContactos
 };
-
